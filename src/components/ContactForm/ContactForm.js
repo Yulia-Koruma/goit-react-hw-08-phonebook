@@ -4,18 +4,20 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import {
   FormContainer,
+  TitleForm,
   Form,
   Field,
   FormGroup,
   ErrorMessage,
   FormButton,
 } from './ContactForm.styled';
-import { addContact } from '../../redux/auth/operations';
-import { selectContacts } from '../../redux/auth/selectors';
+import { addContact } from '../../redux/contacts/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { FaPhone } from 'react-icons/fa';
 
 const formSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').required('Required'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(
       /^(\d{2,}-\d{2,}-\d{2,}|\d{2,}-\d{2,}|\d{5,})$/,
       'Phone number is not valid. Min 7 numbers (101-01-01)'
@@ -29,8 +31,17 @@ export const ContactForm = () => {
 
   return (
     <FormContainer>
+      <TitleForm>
+        Phonebook{' '}
+        <FaPhone
+          style={{
+            width: '30px',
+            height: '30px',
+          }}
+        />
+      </TitleForm>
       <Formik
-        initialValues={{ name: '', phone: '' }}
+        initialValues={{ name: '', number: '' }}
         validationSchema={formSchema}
         onSubmit={(values, actions) => {
           if (
@@ -55,8 +66,8 @@ export const ContactForm = () => {
 
           <FormGroup>
             Number
-            <Field type="tel" name="phone" />
-            <ErrorMessage name="phone" component="span" />
+            <Field type="tel" name="number" />
+            <ErrorMessage name="number" component="span" />
           </FormGroup>
 
           <FormButton type="submit">Add contact</FormButton>

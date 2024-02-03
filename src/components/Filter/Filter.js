@@ -9,7 +9,7 @@ export const Filter = () => {
   return (
     <FilterContainer>
       <FindGroup>
-        Find contacts by name
+        Find contacts by name:
         <Findinput
           type="text"
           name="filters"

@@ -1,39 +1,53 @@
-import { GlobalStyle } from './GlobalStyle';
-import  { Toaster } from 'react-hot-toast';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Contacts } from './Contacts/Contacts';
-import { Filter } from './Filter/Filter';
-import { Title } from './App.styled';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoading, selectError, selectContacts } from '../redux/auth/selectors';
-import { fetchContacts } from '../redux/auth/operations'
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+import { PrivateRoute } from './PtivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
+import { useEffect, lazy } from "react";
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../redux/auth/operations';
+import { Loader } from './Loader/Loader';
+import { useAuth } from '../hooks';
 
-
-
+const HomePage = lazy(() => import('../pages/HomePage'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const contacts = useSelector(selectContacts);
-
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <Title>Contacts</Title>
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      {error && <b>Somesing went wrong! Please, try reload this page.</b>}
-      {contacts.length>0 && <Contacts  />}
-      <GlobalStyle />
-      <Toaster />
-    </div>
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+          />
+           <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 };
