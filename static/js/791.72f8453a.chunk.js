@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[791],{6791:function(e,t,o){o.r(t),o.d(t,{default:function(){return l}});var r=o(1087),n=o(184);function l(){return(0,n.jsxs)("div",{children:["Sorry! The link you followed no longer exists. Please use this"," ",(0,n.jsx)(r.rU,{to:"/",children:"link"})," to navigate to our home page"]})}}}]);
+//# sourceMappingURL=791.72f8453a.chunk.js.map
