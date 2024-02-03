@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/auth/operations';
 
 export const ContactCard = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();

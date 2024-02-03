@@ -1,6 +1,6 @@
 import { FilterContainer, FindGroup, Findinput } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { findContact } from '../../redux/filterSlice';
+import { findContact } from '../../redux/contacts/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();

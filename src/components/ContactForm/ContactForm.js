@@ -10,8 +10,8 @@ import {
   ErrorMessage,
   FormButton,
 } from './ContactForm.styled';
-import { addContact } from '../../redux/operations';
-import { selectContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/auth/operations';
+import { selectContacts } from '../../redux/auth/selectors';
 
 const formSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').required('Required'),
