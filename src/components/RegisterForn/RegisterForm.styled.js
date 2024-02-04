@@ -59,7 +59,7 @@ import {
     margin: 0 auto;
     min-width: 100px;
     color: ${p => p.theme.colors.black};
-    background-color: ${p => p.theme.colors.blue};
+    background-color: ${p => p.theme.colors.pink};
     border-radius: ${p => p.theme.radii.md};
     border: 1px solid rgba(0, 0, 0, 0.15);
     padding: ${p => p.theme.spacing(2)};
@@ -75,7 +75,7 @@ import {
   `;
   
   export const MainLink = styled(NavLink)`
-    color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.pink};
     font-size: 14px;
     font-weight: 500;
   `;

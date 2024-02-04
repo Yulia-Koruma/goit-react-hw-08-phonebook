@@ -15,7 +15,7 @@ export const UserName = styled.p`
 export const LogOutBtn = styled.button`
   min-width: 100px;
   color: ${p => p.theme.colors.black};
-  background-color: ${p => p.theme.colors.blue};
+  background-color: ${p => p.theme.colors.pink};
   border-radius: ${p => p.theme.radii.md};
   border: none;
   padding: ${p => p.theme.spacing(2)};

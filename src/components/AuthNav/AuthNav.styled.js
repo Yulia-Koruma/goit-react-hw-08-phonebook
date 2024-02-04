@@ -8,7 +8,7 @@ export const MainLink = styled(NavLink)`
   text-decoration: none;
 
   &.active {
-    color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.pink};
   }
 `;
 

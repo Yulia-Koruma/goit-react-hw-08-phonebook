@@ -48,7 +48,7 @@ export const FormButton = styled.button`
   margin: 0 auto;
   min-width: 100px;
   color: ${p => p.theme.colors.black};
-  background-color: ${p => p.theme.colors.blue};
+  background-color: ${p => p.theme.colors.pink};
   border-radius: ${p => p.theme.radii.lg};
   border: none;
   padding: ${p => p.theme.spacing(3)};

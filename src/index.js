@@ -6,19 +6,21 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
+import 'animate.css';
 
 const theme = {
   colors: {
-    background: 'rgba(207, 234, 255, 0.15)',
+    background: 'rgba(255, 235, 205, 0.15)',
     green: '#008000',
     red: '#FF0000',
     black: '#2a2a2a',
-    blue: '#0390fc',
+    pink: '#C71585',
     white: '#FFFAFA',
     grey: '#4a5c58',
-    lightgray: 'rgba(180, 204, 199, 0.10)',
-    lightblue: 'rgba(107, 162, 250, 0.30)',
-    active: '#0478d1',
+    purple: '#800080',
+    lightgray: 'rgba(255, 255, 224, 0.10)',
+    lightblue: 'rgba(175, 238, 238, 0.30)',
+    active: '#F08080',
   },
   radii: {
     sm: '4px',

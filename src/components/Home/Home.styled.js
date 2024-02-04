@@ -8,7 +8,8 @@ export const HomeWraper = styled.div`
 `;
 
 export const MainTitle = styled.h1`
+  color: ${p => p.theme.colors.purple};
   font-weight: 700;
-  font-size: 90px;
+  font-size: 60px;
   margin: 0;
 `;

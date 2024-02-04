@@ -1,18 +1,11 @@
 import { HomeWraper, MainTitle } from './Home.styled';
-import { RiContactsBookFill } from 'react-icons/ri';
+import 'animate.css';
 
 export const Home = () => {
   return (
     <HomeWraper>
-      <MainTitle>
-        Contacts manager welcome page{' '}
-        <RiContactsBookFill
-          style={{
-            width: '80px',
-            height: '80px',
-            color: '#0390fc',
-          }}
-        />
+      <MainTitle className='animate__animated animate__pulse animate__infinite animate__slower'>
+        Contacts manager{' '}
       </MainTitle>
     </HomeWraper>
   );
